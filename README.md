@@ -50,3 +50,9 @@ The plasmoid can by configured in the settings menu:
 ## Maybe in a future
  - tooltip with custom name
  - tooltip or dialog with output from scripts
+ 
+## Credits
+  - https://github.com/neicker/on-off-switch
+  - https://github.com/MakG10/plasma-applet-server-status
+  
+  You might also like: https://github.com/Intika-Linux-Plasmoid/plasmoid-on-off-switch-commands

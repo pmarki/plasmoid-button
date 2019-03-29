@@ -1,6 +1,8 @@
 /*
  * Copyright (C) 2019 by Piotr Markiewicz p.marki@wp.pl>
- * Norbert Eicker <norbert.eicker@gmx.de
+ * 
+ * Credits to Norbert Eicker <norbert.eicker@gmx.de>
+ * https://github.com/neicker/on-off-switch
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
