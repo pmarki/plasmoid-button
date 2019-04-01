@@ -6,7 +6,7 @@ and to monitor status by status script.
 
 ## Installation
 
-Install this plasmoid using `plasmapkg2 --installi .` in the plasmoid directory.
+Install this plasmoid using `plasmapkg2 --install .` in the plasmoid directory.
 
 ## Configuration
 The plasmoid can by configured in the settings menu:
@@ -44,7 +44,7 @@ The plasmoid can by configured in the settings menu:
   - On script should exit with 0, otherwise icon be change to red 
  (test it by adding On script `sleep 5; exit 1`)
   - Off script exit code is not taken into account
-  - By default plasmoid shows red (Off) icon when started, this can be easly changed: 
+  - By default plasmoid shows red (Off) icon when started, this can be easily changed: 
   set Status script `exit 0` to run once on startup
 
 ## Maybe in a future
