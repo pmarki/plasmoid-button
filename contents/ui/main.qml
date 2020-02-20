@@ -111,40 +111,40 @@ Item {
         executable.exec(checkStatusScript);
     }
     
-    Plasmoid.compactRepresentation: Item {
+    Plasmoid.compactRepresentation: RowLayout {
         id: mainItem
-        Layout.minimumWidth: units.iconSizes.small
-        Layout.minimumHeight: units.iconSizes.small
+        spacing: 0
+        PlasmaComponents.Label
+        {
+            id :label
+            text: "My command"
+        }
+        Item{
+            Layout.fillWidth: true
+        }
         PlasmaCore.IconItem {
             id: icon
-            width: parent.height
-            height: parent.height
+            Layout.fillHeight: true
+            Layout.fillWidth: true
             source: checked ? plasmoid.configuration.iconOn : plasmoid.configuration.iconOff
-        }
-
-        MouseArea {
-            id: mouseArea
-            anchors.top: icon.top
-            anchors.right: icon.right
-            anchors.bottom: icon.bottom
-            anchors.left: icon.left
-            hoverEnabled: true
-            onClicked: {
-                if ((checked && offScriptEnabled) || (!checked && onScriptEnabled)) {
-                    checked = checked == true ? false : true
-                    toggleAction();
+            MouseArea {
+                id: mouseArea
+                anchors.fill: parent
+                hoverEnabled: true
+                onClicked: {
+                    if ((checked && offScriptEnabled) || (!checked && onScriptEnabled)) {
+                        checked = checked == true ? false : true
+                        toggleAction();
+                    }
                 }
             }
-        }
-        
-        BusyIndicator {
-            id: busy
-            width: parent.height
-            height: parent.height
-            visible: scriptRunning
+            BusyIndicator {
+                id: busy
+                anchors.fill:parent
+                visible: scriptRunning
+            }
         }
     }
-    
     Timer {
         id: checkStatusTimer
         interval: statusInterval
