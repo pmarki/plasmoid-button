@@ -33,6 +33,7 @@ Item {
     property string checkStatusScript: Plasmoid.configuration.statusScript
     property bool runStatusScriptOnStart: Plasmoid.configuration.runStatusOnStart
     property int statusInterval: Plasmoid.configuration.interval
+    property string cfg_commandName: commandnamelabel.text
     
     //Store state of the button
     property bool checked: false
@@ -116,8 +117,8 @@ Item {
         spacing: 0
         PlasmaComponents.Label
         {
-            id :label
-            text: "My command"
+            id :commandnamelabel
+            text: plasmoid.configuration.commandName
         }
         Item{
             Layout.fillWidth: true

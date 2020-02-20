@@ -54,5 +54,9 @@
         <label>Used internally - interval 2 minutes</label>
         <default>120</default>
     </entry>
+    <entry name ="commandName" type="String">
+	    <label>The name of the command</label>
+	    <default>Some script</default>
+    </entry>
   </group>
 </kcfg>
