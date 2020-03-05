@@ -31,7 +31,7 @@ Item {
     property alias cfg_updateIntervalUnit: updateIntervalUnitSpinBox.value
     property string cfg_iconOn: plasmoid.configuration.iconOn
     property string cfg_iconOff: plasmoid.configuration.iconOff
-    property string cfg_commandName: commandnameText.text
+    property alias cfg_commandName: commandNameText.text
     
     function setInterval() {
         if (updateIntervalUnitSpinBox.value == 1) {
@@ -47,13 +47,24 @@ Item {
         GridLayout {
             columns: 2
             Label {
+                Layout.row :0
+                Layout.column: 0
+                text: i18n("Plasmoid label")
+            }
+            TextField {
                 Layout.row: 0
+                Layout.column: 1
+                id: commandNameText
+                Layout.minimumWidth: 300
+            }
+            Label {
+                Layout.row: 1
                 Layout.column: 0
                 text: i18n("On-Script")
                 font.weight: Font.Bold
             }
             CheckBox {
-                Layout.row: 0
+                Layout.row: 1
                 Layout.column: 1
                 id: onScriptEnabledBox
                 checked: onScriptText.activeFocus || onScriptText.length
@@ -62,24 +73,24 @@ Item {
                 onClicked: if (checked) onScriptText.forceActiveFocus();
             }
             Label {
-                Layout.row: 1
+                Layout.row: 2
                 Layout.column: 0
                 text: i18n("Script")
             }
             TextField {
-                Layout.row: 1
+                Layout.row: 2
                 Layout.column: 1
                 id: onScriptText
                 Layout.minimumWidth: 300
                 enabled: onScriptEnabledBox.checked
             }
             Label {
-                Layout.row: 2
+                Layout.row: 3
                 Layout.column: 0
                 text: i18n("Icon")
             }
             IconPicker {
-                Layout.row: 2
+                Layout.row: 3
                 Layout.column: 1
                 currentIcon: cfg_iconOn
                 defaultIcon: "security-high"
@@ -88,13 +99,13 @@ Item {
             }
  
             Label {
-                Layout.row: 3
+                Layout.row: 4
                 Layout.column: 0
                 text: i18n("Off-Script")
                 font.weight: Font.Bold
             }
             CheckBox {
-                Layout.row: 3
+                Layout.row: 4
                 Layout.column: 1
                 id: offScriptEnabledBox
                 checked: offScriptText.activeFocus || offScriptText.length
@@ -103,24 +114,24 @@ Item {
                 onClicked: if (checked) offScriptText.forceActiveFocus();
             }
             Label {
-                Layout.row: 4
+                Layout.row: 5
                 Layout.column: 0
                 text: i18n("Script")
             }
             TextField {
-                Layout.row: 4
+                Layout.row: 5
                 Layout.column: 1
                 id: offScriptText
                 Layout.minimumWidth: 300
                 enabled: offScriptEnabledBox.checked
             }
             Label {
-                Layout.row: 5
+                Layout.row: 6
                 Layout.column: 0
                 text: i18n("Icon")
             }
             IconPicker {
-                Layout.row: 5
+                Layout.row: 6
                 Layout.column: 1
                 currentIcon: cfg_iconOff
                 defaultIcon: "security-high"
@@ -129,13 +140,13 @@ Item {
             }
             
             Label {
-                Layout.row: 6
+                Layout.row: 7
                 Layout.column: 0
                 text: i18n("Status script")
                 font.weight: Font.Bold
             }
             CheckBox {
-                Layout.row: 6
+                Layout.row: 7
                 Layout.column: 1
                 id: statusScriptEnabledBox
                 checked: checkStatusScriptText.activeFocus || checkStatusScriptText.length
@@ -145,12 +156,12 @@ Item {
             }
             
             Label {
-                Layout.row: 7
+                Layout.row: 8
                 Layout.column: 0
                 text: i18n("Script")
             }
             TextField {
-                Layout.row: 7
+                Layout.row: 8
                 Layout.column: 1
                 id: checkStatusScriptText
                 Layout.minimumWidth: 300
@@ -158,13 +169,13 @@ Item {
             }
             
             Label {
-                Layout.row: 8
+                Layout.row: 9
                 Layout.column: 0
                 text: i18n("Run every")
             }
             GridLayout {
-                columns: 1
-                Layout.row: 8
+                columns: 2
+                Layout.row: 9
                 Layout.column: 1
                 SpinBox {
                     Layout.row: 0
@@ -204,25 +215,12 @@ Item {
                 }
             }
             CheckBox {
-                Layout.row: 9
+                Layout.row: 10
                 Layout.column: 1
                 id: runStatusScriptBox
                 text: i18n("Check status on startup")
             }
-            Label {
-                Layout.row :10
-                Layout.column: 0
-                text: i18n("Command name")
-            }
-            TextField{
-                Layout.row: 10
-                Layout.column: 1
-                id: commandnameText
-                Layout.minimumWidth: 300
-                onTextChanged: {
-                    cfg_commandName=text
-                }
-            }
+
         }   
     }
 }
