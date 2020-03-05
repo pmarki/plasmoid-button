@@ -31,6 +31,7 @@ Item {
     property alias cfg_updateIntervalUnit: updateIntervalUnitSpinBox.value
     property string cfg_iconOn: plasmoid.configuration.iconOn
     property string cfg_iconOff: plasmoid.configuration.iconOff
+    property string cfg_commandName: commandnameText.text
     
     function setInterval() {
         if (updateIntervalUnitSpinBox.value == 1) {
@@ -207,6 +208,20 @@ Item {
                 Layout.column: 1
                 id: runStatusScriptBox
                 text: i18n("Check status on startup")
+            }
+            Label {
+                Layout.row :10
+                Layout.column: 0
+                text: i18n("Command name")
+            }
+            TextField{
+                Layout.row: 10
+                Layout.column: 1
+                id: commandnameText
+                Layout.minimumWidth: 300
+                onTextChanged: {
+                    cfg_commandName=text
+                }
             }
         }   
     }
