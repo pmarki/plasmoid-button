@@ -116,7 +116,7 @@ Item {
         id: mainItem
         spacing: 0
         Item{
-            id: label_container
+            id: labelContainer
             Layout.fillHeight: true
             Layout.fillWidth: true
             Text {
@@ -135,7 +135,7 @@ Item {
             }
         }
         Item{
-            id :icon_container
+            id :iconContainer
             Layout.fillHeight: true
             Layout.minimumWidth: height
             PlasmaCore.IconItem {
