@@ -115,33 +115,51 @@ Item {
     Plasmoid.compactRepresentation: RowLayout {
         id: mainItem
         spacing: 0
-        PlasmaComponents.Label {
-            id: commandNameLabel
-            text: commandName
-        }
-        Item {
-            Layout.fillWidth: true
-        }
-        PlasmaCore.IconItem {
-            id: icon
+        Rectangle{
+            id: green_rect
             Layout.fillHeight: true
             Layout.fillWidth: true
-            source: checked ? plasmoid.configuration.iconOn : plasmoid.configuration.iconOff
-            MouseArea {
-                id: mouseArea
-                anchors.fill: parent
-                hoverEnabled: true
-                onClicked: {
-                    if ((checked && offScriptEnabled) || (!checked && onScriptEnabled)) {
-                        checked = checked == true ? false : true
-                        toggleAction();
+            color: 'green'
+            Text {
+                width: parent.width-parent.height
+                height: parent.height
+                id: commandNameLabel
+                text: commandName
+                color: PlasmaCore.ColorScope.textColor
+                minimumPointSize: 5
+                font.pointSize: 100
+                fontSizeMode: Text.Fit
+                anchors.centerIn: parent
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
+                elide: Text.ElideRight
+            }
+        }
+        Rectangle{
+            id :red_rect
+            Layout.fillHeight: true
+            Layout.minimumWidth: height
+            color: 'red'
+            PlasmaCore.IconItem {
+                id: icon
+                anchors.fill:parent
+                source: checked ? plasmoid.configuration.iconOn : plasmoid.configuration.iconOff
+                MouseArea {
+                    id: mouseArea
+                    anchors.fill: parent
+                    hoverEnabled: true
+                    onClicked: {
+                        if ((checked && offScriptEnabled) || (!checked && onScriptEnabled)) {
+                            checked = checked == true ? false : true
+                            toggleAction();
+                        }
                     }
                 }
-            }
-            BusyIndicator {
-                id: busy
-                anchors.fill:parent
-                visible: scriptRunning
+                BusyIndicator {
+                    id: busy
+                    anchors.fill:parent
+                    visible: scriptRunning
+                }
             }
         }
     }
