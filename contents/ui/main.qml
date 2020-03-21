@@ -115,11 +115,10 @@ Item {
     Plasmoid.compactRepresentation: RowLayout {
         id: mainItem
         spacing: 0
-        Rectangle{
-            id: green_rect
+        Item{
+            id: label_container
             Layout.fillHeight: true
             Layout.fillWidth: true
-            color: 'green'
             Text {
                 width: parent.width-parent.height
                 height: parent.height
@@ -135,11 +134,10 @@ Item {
                 elide: Text.ElideRight
             }
         }
-        Rectangle{
-            id :red_rect
+        Item{
+            id :icon_container
             Layout.fillHeight: true
             Layout.minimumWidth: height
-            color: 'red'
             PlasmaCore.IconItem {
                 id: icon
                 anchors.fill:parent
