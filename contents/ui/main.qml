@@ -41,6 +41,7 @@ Item {
     property bool scriptRunning: false
     
     Plasmoid.preferredRepresentation: Plasmoid.compactRepresentation
+    Plasmoid.backgroundHints: PlasmaCore.Types.DefaultBackground | PlasmaCore.Types.ConfigurableBackground
     
     onStatusIntervalChanged: {
         console.log('* Interval changed: ' +statusInterval);
