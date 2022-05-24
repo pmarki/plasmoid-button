@@ -165,7 +165,7 @@ Item {
                 Layout.column: 1
                 id: checkStatusScriptText
                 Layout.minimumWidth: 300
-                enabled: statusScriptEnabledBox.checked
+                enabled: (statusScriptEnabledBox.checked ||  runStatusScriptBox.checked)
             }
             
             Label {
