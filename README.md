@@ -39,6 +39,13 @@ The plasmoid can by configured in the settings menu:
  
 ### Configuration to start, stop and monitor service
  - Enable everything :)
+
+### Examples of status scripts configuration
+ - Checking service status: `systemctl status docker` (systemctl returns exit codes according to service state already)
+ - Checking if a file exists: `exit $(test -f path/to/file);`
+ - Checking if a file does **not** exist: `exit $(! test -f path/to/file);`
+ - Checking if a file contains a specific string: `exit $(test $(cat path/to/file | grep -c pattern) -ne 0)`
+ - Checking if HDMI-0 display is active: `exit $(test $(xrandr --listactivemonitors | grep -c HDMI-0) -ne 0)`
  
 ## Notes
   - On script should exit with 0, otherwise icon be change to red 
